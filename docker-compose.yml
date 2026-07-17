@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: fitmcp
+      POSTGRES_PASSWORD: fitmcp
+      POSTGRES_DB: fitmcp
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  mcp-orchestrator:
+    build:
+      context: .
+      dockerfile: services/mcp-orchestrator/Dockerfile
+    env_file: .env
+    ports:
+      - "4100:4100"
+    depends_on:
+      - postgres
+      - garmin-service
+      - weather-service
+
+  garmin-service:
+    build:
+      context: .
+      dockerfile: services/garmin-service/Dockerfile
+    env_file: .env
+    ports:
+      - "4101:4101"
+    volumes:
+      - garmin-tokens:/data/garmin-tokens
+
+  weather-service:
+    build:
+      context: .
+      dockerfile: services/weather-service/Dockerfile
+    env_file: .env
+    ports:
+      - "4104:4104"
+
+  frontend:
+    build: ./apps/frontend
+    env_file: .env
+    ports:
+      - "5173:5173"
+    depends_on:
+      - mcp-orchestrator
+
+volumes:
+  pgdata:
+  garmin-tokens:

@@ -1,0 +1,9 @@
+{
+  "name": "fitmcp-clone",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "apps/*",
+    "packages/*"
+  ]
+}

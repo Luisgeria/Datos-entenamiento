@@ -1,0 +1,6 @@
+{
+  "name": "@fitmcp/shared",
+  "version": "0.1.0",
+  "main": "src/mcpTools.js",
+  "license": "UNLICENSED"
+}

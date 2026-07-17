@@ -1,0 +1,13 @@
+{
+  "name": "mcp-orchestrator",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "scripts": { "start": "node src/index.js", "dev": "node --watch src/index.js" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "uuid": "^10.0.0",
+    "@fitmcp/shared": "*"
+  }
+}
