@@ -1,4 +1,4 @@
-# FitMCP Clone
+# FitMCP
 
 Puente entre Garmin Connect y asistentes de IA vía **MCP** (Model Context Protocol).
 Cuenta permanente creada solo con email (sin verificación, sin trial, sin suscripción):
